@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Alegreya&family=Alegreya+Sans&family=Merriweather&family=Merriweather+Sans&family=Nunito&family=Nunito+Sans&family=Poppins:wght@300;400;500;600;700&family=Quattrocento&family=Quattrocento+Sans&family=Roboto&family=Roboto+Mono&family=Roboto+Slab&display=swap');
+
+* {
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: rgb(241, 241, 241);
+}
+
+.container {
+  max-width: 60%;
+  position: relative;
+  width: 100%;
+  background-color: rgb(207, 241, 241);
+  border: 1px solid rgb(150, 222, 231);
+  box-shadow: 0 13px 13px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 25px;
+  margin: 85px auto 0;
+}
+
+.container .input-field {
+  position: relative;
+  height: 64px;
+  width: 100%;
+}
+
+textarea::-webkit-scrollbar {
+  display: none;
+}
+
+.input-field textarea {
+  height: 50%;
+  width: 90%;
+  font-size: 1rem;
+  font-style: italic;
+  font-weight: 400;
+  border-radius: 8px;
+  padding: 2%;
+  border: 1px solid rgb(204, 200, 200);
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+}
+
+.input-field .sync-icon {
+  position: absolute;
+  top: 28%;
+  right: 8%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  font-size: 24px;
+  color: rgb(94, 92, 90);
+}
+
+#reset {
+  cursor: pointer !important;
+}
+
+.container .todoList {
+  margin-top: 13%;
+  padding-left: 0;
+  width: 95%;
+}
+
+.todoList .list {
+  position: relative;
+  display: flex;
+  align-items: center;
+  list-style: none;
+  background-color: rgb(244, 249, 253);
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 2%;
+}
+
+.todoList .list input {
+  height: 16px;
+  min-width: 16px;
+  accent-color: rgb(54, 135, 228);
+
+  /* pointer-events: none; */
+}
+
+.todoList .list .task {
+  margin: 0 15px;
+  word-break: break-all;
+}
+
+.list input:checked ~ .task {
+  text-decoration: line-through;
+}
+
+.todoList .list i {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  font-size: 24px;
+  color: rgb(94, 92, 90);
+  padding: 5px;
+  opacity: 0.6;
+}
+
+.todoList .list i:hover {
+  opacity: 1;
+}
+
+.container .clear {
+  margin: 1%;
+  display: flex;
+}
+
+.clear span {
+  color: rgb(110, 109, 107);
+  margin: auto;
+  padding: 2%;
+  cursor: pointer;
+}
