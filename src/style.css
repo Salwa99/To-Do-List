@@ -32,12 +32,23 @@ textarea::-webkit-scrollbar {
 
 .input-field textarea {
   height: 50%;
-  width: 90%;
+  width: 88%;
   font-size: 1rem;
   font-style: italic;
   font-weight: 400;
-  border-radius: 8px;
+  border: none;
+  background: none;
   padding: 2%;
+  resize: none;
+  outline: none;
+}
+
+.field {
+  background: rgb(255, 255, 255);
+  width: 94%;
+  display: flex;
+  align-items: center;
+  border-radius: 8px;
   border: 1px solid rgb(204, 200, 200);
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
 }
@@ -47,6 +58,14 @@ textarea::-webkit-scrollbar {
   top: 28%;
   right: 8%;
   transform: translateY(-50%);
+  pointer-events: none;
+  font-size: 24px;
+  color: rgb(94, 92, 90);
+}
+
+.input-field .enter-icon {
+  top: 90%;
+  right: 2%;
   pointer-events: none;
   font-size: 24px;
   color: rgb(94, 92, 90);

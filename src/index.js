@@ -15,14 +15,16 @@ const tasks= [
     {
     description: 'task 3',
     completed: false,
-    index: 2
+    index: 3
     },
     {
         description: 'task 4',
         completed: false,
-        index: 3
+        index: 2
         },
 ]
+
+tasks.sort((a, b) => a.index - b.index);
 
 tasks.forEach((element) =>{
     todoList.innerHTML += ` <li class="list">
