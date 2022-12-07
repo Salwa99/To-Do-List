@@ -27,7 +27,7 @@
 
 # 🚀 Live Demo <a name="live-demo"></a>
 
-[To Do List 📝](https://github.com/Salwa99/To-Do-List.git)
+[To Do List 📝](https://salwa99.github.io/To-Do-List/)
 
 ### Server
 
