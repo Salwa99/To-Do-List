@@ -55,7 +55,7 @@
 5. Install the dev dependencies for linters run npm install.
 6. run: ```npm  i --save-dev webpack webpack-cli webpack-dev-server @babel/core @babel/preset-env babel-loader style-loader css-loader sass-loader html-webpack-plugin mini-css-extract-plugin ```
 
-After Installing all the packages run this command ``` npm run serve ``` to start dev server and you can just press ```Ctrl + C``` in the terminal and that will kill it and run ``` npm run build ``` to creates a build directory with a production build of your app . 
+After Installing all the packages run this command ``` npm run start ``` to start dev server and you can just press ```Ctrl + C``` in the terminal and that will kill it and run ``` npm run build ``` to creates a build directory with a production build of your app . 
 # Prerequisites
 
 ### In order to run this project you need
