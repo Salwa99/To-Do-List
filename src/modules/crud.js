@@ -1,6 +1,6 @@
-
-const taskInput = document.querySelector(".addtolist");
+const taskInput = document.querySelector(".task-input input");
 const taskBox = document.querySelector(".task-box");
+const ClearAll = document.querySelector(".clearall");
 
 let completed = false,
     index = 0;
@@ -10,16 +10,34 @@ let todoList = [];
 function showTodo() {
     let liTag = "";
     todoList.forEach((element) => {
-        liTag += `<li class="task">
-                                <input type="checkbox" class="checkme">
-                                <input type="text" value="${element.description}" class="listitem" id="item${element.index}" readonly>
+    if(element.completed === true){
+        
+            liTag += `<li class="task">
+                                    <input type="checkbox" class="checkme" checked onclick="CheckMe(${element.index});" id="check${element.index}">
+                                    <input type="text" value="${element.description}" class="listitem" id="item${element.index}" readonly>
+    
+                                    <i class="fa-solid fa-pen-to-square edit " id="edit${element.index}" onclick="editItem(${element.index});"></i>
+                                    <i class="fa-solid fa-floppy-disk save hide" id="save${element.index}" onclick="saveItem(${element.index});"></i>
+                               <i id="removeicon" onclick="removeItem(${element.index});" class="fa-solid fa-trash"></i>
+                            </li>`;
+    
+      
+    }
+    else{ 
 
-                                <i class="fa-solid fa-pen-to-square edit " id="edit${element.index}" onclick="editItem(${element.index});"></i>
-                                <i class="fa-solid fa-floppy-disk save hide" id="save${element.index}" onclick="saveItem(${element.index});"></i>
-                           <i id="removeicon" onclick="removeItem(${element.index});" class="fa-solid fa-trash"></i>
-                        </li>`;
+            liTag += `<li class="task">
+                                    <input type="checkbox" class="checkme" onclick="CheckMe(${element.index});" id="check${element.index}">
+                                    <input type="text" value="${element.description}" class="listitem" id="item${element.index}" readonly>
+    
+                                    <i class="fa-solid fa-pen-to-square edit " id="edit${element.index}" onclick="editItem(${element.index});"></i>
+                                    <i class="fa-solid fa-floppy-disk save hide" id="save${element.index}" onclick="saveItem(${element.index});"></i>
+                               <i id="removeicon" onclick="removeItem(${element.index});" class="fa-solid fa-trash"></i>
+                            </li>`;
+    
+    }
+});
 
-    });
+  
 
     taskBox.innerHTML = liTag || `<p class="empty">You don't have any task here</p>`;
     taskInput.value = ''
@@ -97,3 +115,33 @@ window.removeItem = (index) => {
     localStorage.setItem("todo-list", JSON.stringify(todoList));
     showTodo()
 };
+
+window.CheckMe = (index) => {
+    const CheckCheck = document.getElementById(`check${index}`);
+    if (CheckCheck.checked == true) {
+      let storedData = localStorage.getItem("todo-list");
+      todoList = JSON.parse(storedData);
+      todoList[index].completed = true;
+      localStorage.setItem("todo-list", JSON.stringify(todoList));
+      showTodo();
+    }
+    else {
+      let storedData = localStorage.getItem("todo-list");
+      todoList = JSON.parse(storedData);
+      todoList[index].completed = false;
+      localStorage.setItem("todo-list", JSON.stringify(todoList));
+      showTodo();
+    }
+  }
+
+ClearAll.addEventListener('click', ()=>{
+    let storedData = localStorage.getItem("todo-list");
+      todoList = JSON.parse(storedData);
+      let AfterCleared = todoList.filter((element) => element.completed === false);
+      todoList = AfterCleared;
+      for(let i=0;i<todoList.length;i++){
+        todoList[i].index = i;
+      }
+      localStorage.setItem("todo-list", JSON.stringify(todoList));
+      showTodo();
+})
